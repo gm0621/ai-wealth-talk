@@ -20,6 +20,8 @@ button{font:inherit}
 .slide{position:absolute;inset:0;display:none;overflow:hidden;padding:78px 104px 74px;background:var(--paper);opacity:0}
 .slide.active{display:block;opacity:1;animation:fade .2s ease-out}
 @keyframes fade{from{opacity:.25}to{opacity:1}}
+.fragment{opacity:0;visibility:hidden;transform:translateY(26px);pointer-events:none;transition:opacity .34s ease,transform .34s ease,visibility 0s linear .34s}
+.fragment.is-visible{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;transition-delay:0s}
 .slide::before{content:"";position:absolute;right:-170px;top:-210px;width:550px;height:550px;border-radius:50%;border:95px solid rgba(23,139,131,.06)}
 .slide.dark{background:var(--night);color:#fff}
 .slide.dark::before{border-color:rgba(245,199,104,.06)}
@@ -157,17 +159,17 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
 .leverage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:68px}
 .lever{min-height:570px;padding:42px 40px;background:#fff;border:2px solid var(--line);position:relative;overflow:hidden}
 .lever::after{position:absolute;right:-12px;bottom:-42px;font-size:180px;font-weight:950;color:rgba(14,41,68,.055)}
-.lever.people::after{content:"人"}.lever.money::after{content:"金"}.lever.software::after{content:"軟"}
-.lever.people{border-top:10px solid var(--gold)}.lever.money{border-top:10px solid var(--green)}.lever.software{border-top:10px solid var(--teal)}
+.lever.people::after{content:"人"}.lever.money::after{content:"金"}.lever.system::after{content:"系"}
+.lever.people{border-top:10px solid var(--gold)}.lever.money{border-top:10px solid var(--green)}.lever.system{border-top:10px solid var(--teal)}
 .lever .lever-label{font-size:21px;letter-spacing:.12em;font-weight:900;color:var(--muted)}
 .lever h3{font-size:45px;margin:40px 0 23px}.lever .metaphor{font-size:34px;font-weight:850;color:var(--navy);line-height:1.35}.lever p{font-size:25px;margin-top:30px}
-.software-cases{display:grid;grid-template-columns:1fr 1fr;gap:38px;margin-top:58px}
-.soft-case{min-height:540px;padding:47px;background:#fff;border:2px solid var(--line);display:flex;flex-direction:column}
-.soft-case:first-child{border-top:10px solid var(--gold)}.soft-case:last-child{border-top:10px solid var(--teal)}
-.soft-case h3{font-size:43px}.soft-case .transform{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;margin:50px 0 35px}
-.soft-case .transform span{padding:24px 20px;background:#eef2ef;font-size:27px;font-weight:800;text-align:center;color:var(--navy)}
-.soft-case .transform b{font-size:42px;color:var(--gold)}
-.soft-case p{font-size:26px;margin-top:auto}
+.system-cases{display:grid;grid-template-columns:1fr 1fr;gap:38px;margin-top:58px}
+.system-case{min-height:540px;padding:47px;background:#fff;border:2px solid var(--line);display:flex;flex-direction:column}
+.system-case:first-child{border-top:10px solid var(--gold)}.system-case:last-child{border-top:10px solid var(--teal)}
+.system-case h3{font-size:43px}.system-case .transform{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;margin:50px 0 35px}
+.system-case .transform span{padding:24px 20px;background:#eef2ef;font-size:27px;font-weight:800;text-align:center;color:var(--navy)}
+.system-case .transform b{font-size:42px;color:var(--gold)}
+.system-case p{font-size:26px;margin-top:auto}
 .accelerator{display:grid;grid-template-columns:1.06fr .94fr;gap:65px;align-items:center;margin-top:58px}
 .accel-visual{height:590px;background:linear-gradient(145deg,#0d2a46,#0c4c5b);color:#fff;padding:52px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
 .accel-visual .small{font-size:24px;color:#9fc2cf}.accel-visual .ai{font-size:160px;font-weight:950;color:var(--gold2);line-height:1}.accel-visual strong{font-size:41px;line-height:1.3;margin-top:35px}.accel-visual::after{content:"×";position:absolute;right:15px;bottom:-75px;font-size:290px;color:rgba(255,255,255,.06);font-weight:900}
@@ -190,13 +192,14 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
 .controls{position:absolute;left:0;right:0;bottom:0;height:82px;background:#040d17;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 25px;z-index:100}
 .controls-group{display:flex;align-items:center;gap:9px}.control-btn{height:48px;min-width:50px;padding:0 16px;border:1px solid #31506a;background:#0e263a;color:#f3f7fa;border-radius:8px;cursor:pointer;font-size:19px;font-weight:760}.control-btn:hover,.control-btn:focus-visible{background:#173b57;outline:3px solid var(--gold2);outline-offset:2px}.counter{font-size:18px;color:#b4c5d1;min-width:90px;text-align:center}.help{font-size:16px;color:#7f98aa}.progress{position:absolute;left:0;top:0;height:4px;background:var(--gold2);transition:width .2s ease}.overview{position:fixed;inset:0;background:rgba(3,10,17,.96);z-index:300;display:none;padding:50px 64px;overflow:auto;color:#fff}.overview.open{display:block}.overview-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}.overview h2{font-size:46px;color:#fff}.overview-grid{display:grid;grid-template-columns:repeat(4,minmax(240px,1fr));gap:16px}.thumb{min-height:135px;padding:20px;text-align:left;background:#0d263a;color:#fff;border:1px solid #36546b;cursor:pointer}.thumb small{display:block;color:var(--gold2);font-weight:850;margin-bottom:9px}.thumb strong{font-size:22px;line-height:1.3}.thumb:hover,.thumb:focus-visible{outline:2px solid var(--gold2);border-color:var(--gold2)}
 @media (max-width:800px){.help{display:none}.control-btn{padding:0 11px}.controls{padding:0 10px}.overview-grid{grid-template-columns:1fr 1fr}}
-@media (prefers-reduced-motion:reduce){.slide.active{animation:none}.progress{transition:none}}
+@media (prefers-reduced-motion:reduce){.slide.active{animation:none}.progress,.fragment{transition:none}}
 @media print{
   @page{size:16in 9in;margin:0}
   html,body{height:auto;overflow:visible;background:#fff}
   .deck-viewport{position:static;inset:auto;overflow:visible;background:#fff}
   .deck{position:static;width:auto;height:auto;transform:none!important}
   .slide{position:relative;display:block!important;opacity:1!important;width:1920px;height:1080px;page-break-after:always;break-after:page}
+  .fragment{opacity:1!important;visibility:visible!important;transform:none!important;transition:none!important}
   .controls,.overview{display:none!important}
 }
 </style>
@@ -345,27 +348,27 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
   </section>
 
   <section class="slide" id="three-levers" data-title="三種創富槓桿">
-    <div class="topline"><div><div class="eyebrow">三種放大自己的方式</div><h2>人力、金錢、軟體</h2></div><p>槓桿不替你決定方向，它只會把方向放大。</p></div>
+    <div class="topline"><div><div class="eyebrow">三種放大自己的方式</div><h2>人力、金錢、系統</h2></div><p>槓桿不替你決定方向，它只會把方向放大。</p></div>
     <div class="leverage-grid">
       <article class="lever people"><div class="lever-label">人力槓桿</div><h3>讓更多人一起做</h3><div class="metaphor">多出幾雙手</div><p>透過分工、溝通與團隊合作，讓成果不再只靠一個人完成。</p></article>
       <article class="lever money"><div class="lever-label">金錢槓桿</div><h3>用資源換取速度</h3><div class="metaphor">換到時間與機會</div><p>購買人才、設備、通路與試錯空間，讓正確方向更快發生。</p></article>
-      <article class="lever software"><div class="lever-label">軟體槓桿</div><h3>做一次，重複運作</h3><div class="metaphor">一個不睡覺的分身</div><p>即使你不在現場，系統仍然可以替使用者完成一件事。</p></article>
+      <article class="lever system"><div class="lever-label">系統槓桿</div><h3>做一次，持續運作</h3><div class="metaphor">一個不睡覺、會照流程做事的分身</div><p>把方法變成系統，即使你不在現場，事情仍能按照流程持續完成。</p></article>
     </div>
     <div class="slide-no">13</div>
   </section>
 
-  <section class="slide" id="software-leverage" data-title="兩個軟體槓桿案例">
-    <div class="topline"><div><div class="eyebrow">一個放大創意，一個放大專業</div><h2>兩個案例，都是軟體槓桿</h2></div><p>做出軟體只是開始；可以被反覆使用，槓桿才真正發生。</p></div>
-    <div class="software-cases">
-      <article class="soft-case"><h3>《三國萌將守城》</h3><div class="transform"><span>孩子的想像</span><b>→</b><span>可以玩的作品</span></div><p>做一次，之後可以反覆玩、持續修改，也能分享給更多人。</p></article>
-      <article class="soft-case"><h3>N-Ticket</h3><div class="transform"><span>專業 Know-how</span><b>→</b><span>可運作的系統</span></div><p>顧問不在現場，系統仍能提醒、追蹤、通知並保存可稽核的紀錄。</p></article>
+  <section class="slide" id="system-leverage" data-title="兩個系統槓桿案例">
+    <div class="topline"><div><div class="eyebrow">一個放大創意，一個放大專業</div><h2>兩個案例，都是系統槓桿</h2></div><p>做出工具只是開始；可以被反覆使用，槓桿才真正發生。</p></div>
+    <div class="system-cases">
+      <article class="system-case"><h3>《三國萌將守城》</h3><div class="transform"><span>孩子的想像</span><b>→</b><span>可以玩的作品</span></div><p>做一次，之後可以反覆玩、持續修改，也能分享給更多人。</p></article>
+      <article class="system-case"><h3>N-Ticket</h3><div class="transform"><span>專業 Know-how</span><b>→</b><span>可運作的系統</span></div><p>顧問不在現場，系統仍能提醒、追蹤、通知並保存可稽核的紀錄。</p></article>
     </div>
     <div class="bottom-punch">《三國萌將守城》放大創意；N-Ticket 放大專業。</div>
     <div class="slide-no">14</div>
   </section>
 
   <section class="slide" id="ai-accelerator" data-title="AI 是槓桿加速器">
-    <div class="topline"><div><div class="eyebrow">AI 放在哪裡？</div><h2>AI 更像是槓桿的加速器</h2></div><p>尤其降低了使用軟體槓桿的門檻。</p></div>
+    <div class="topline"><div><div class="eyebrow">AI 放在哪裡？</div><h2>AI 更像是槓桿的加速器</h2></div><p>尤其降低了打造系統槓桿的門檻。</p></div>
     <div class="accelerator">
       <div class="accel-visual"><span class="small">降低實作門檻</span><div class="ai">AI</div><strong>讓更多人有機會<br>把自己的知識做成工具</strong></div>
       <div class="accel-copy"><ul><li>幫助整理需求與可能方案</li><li>加快第一版程式與內容產生</li><li>縮短測試、修正與迭代週期</li><li>協助不同專業建立共同語言</li></ul><div class="warning">方向對了，AI 放大價值；方向錯了，AI 也會讓你更快到達錯的地方。</div></div>
@@ -407,8 +410,8 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
 
 <nav class="controls" aria-label="簡報控制列">
   <div class="progress" id="progress"></div>
-  <div class="controls-group"><button class="control-btn" id="prev" aria-label="上一頁">←</button><button class="control-btn" id="next" aria-label="下一頁">→</button><span class="counter" id="counter">1 / 19</span></div>
-  <div class="help">方向鍵／空白鍵翻頁 · O 總覽 · F 全螢幕 · P 列印 · Esc 離開</div>
+  <div class="controls-group"><button class="control-btn" id="prev" aria-label="上一步">←</button><button class="control-btn" id="next" aria-label="下一步">→</button><span class="counter" id="counter">1 / 19</span></div>
+  <div class="help">→／空白鍵：下一步 · ←：上一步 · O 總覽 · F 全螢幕 · P 列印</div>
   <div class="controls-group"><button class="control-btn" id="overviewBtn">總覽</button><button class="control-btn" id="printBtn">列印</button><button class="control-btn" id="fullscreenBtn">全螢幕</button></div>
 </nav>
 
@@ -427,12 +430,42 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
   const grid=document.getElementById('overviewGrid');
   const storageKey='ai-wealth-talk-slide-v1';
   let current=Math.min(Math.max(Number(localStorage.getItem(storageKey))||0,0),slides.length-1);
+  const revealed=Array(slides.length).fill(0);
+  const fragmentPlan={
+    'game-question':['.poll-options','.question'],
+    'son-story':['.quote','.reveal'],
+    'old-ending':['.barrier','.bottom-punch'],
+    'game-method':['.flow-step','.bottom-punch'],
+    'human-ai':['.role'],
+    'your-idea':['.center p','.prompt'],
+    'two-cases':['.case.game','.bridge-arrow','.case.system'],
+    'nticket-problem':['.pain-old','.pain-answer','.bottom-punch'],
+    'change-network':['.workflow-step','.bottom-punch'],
+    'translator':['.schedule-examples','.schedule-step','.bottom-punch'],
+    'future-abilities':['.ability'],
+    'leverage-why':['.single-person','.leverage-copy'],
+    'three-levers':['.lever'],
+    'system-leverage':['.system-case','.bottom-punch'],
+    'ai-accelerator':['.accel-visual','.accel-copy li','.warning'],
+    'toastmasters':['.tm-left','.tm-item','.formula'],
+    'action':['.question-card'],
+    'closing':['.memory','.closing h2','.final','.small']
+  };
+
+  Object.entries(fragmentPlan).forEach(([id,selectors])=>{
+    const slide=document.getElementById(id);
+    if(!slide) return;
+    selectors.forEach(selector=>slide.querySelectorAll(selector).forEach(element=>{
+      element.classList.add('fragment');
+      element.setAttribute('aria-hidden','true');
+    }));
+  });
 
   slides.forEach((slide,i)=>{
     const button=document.createElement('button');
     button.className='thumb';
     button.innerHTML='<small>'+String(i+1).padStart(2,'0')+'</small><strong>'+slide.dataset.title+'</strong>';
-    button.addEventListener('click',()=>{show(i);toggleOverview(false)});
+    button.addEventListener('click',()=>{show(i,'reset');toggleOverview(false)});
     grid.appendChild(button);
   });
 
@@ -441,14 +474,41 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
     const scale=Math.min(1,viewport.clientWidth/1920,viewport.clientHeight/1080);
     deck.style.transform='translate(-50%, -50%) scale('+scale+')';
   }
-  function show(index){
+  function fragments(index){return [...slides[index].querySelectorAll('.fragment')]}
+  function renderFragments(index){
+    const items=fragments(index);
+    revealed[index]=Math.min(Math.max(revealed[index],0),items.length);
+    items.forEach((item,i)=>{
+      const visible=i<revealed[index];
+      item.classList.toggle('is-visible',visible);
+      item.setAttribute('aria-hidden',String(!visible));
+    });
+    const step=items.length?' · '+revealed[index]+' / '+items.length:'';
+    counter.textContent=(index+1)+' / '+slides.length+step;
+  }
+  function show(index,revealMode='reset'){
     current=(index+slides.length)%slides.length;
-    slides.forEach((slide,i)=>slide.classList.toggle('active',i===current));
-    counter.textContent=(current+1)+' / '+slides.length;
+    slides.forEach((slide,i)=>{
+      const active=i===current;
+      slide.classList.toggle('active',active);
+      slide.setAttribute('aria-hidden',String(!active));
+    });
+    if(revealMode==='all') revealed[current]=fragments(current).length;
+    else if(revealMode==='reset') revealed[current]=0;
+    renderFragments(current);
     progress.style.width=((current+1)/slides.length*100)+'%';
     localStorage.setItem(storageKey,String(current));
     document.title=slides[current].dataset.title+'｜當 AI 什麼都能做，我們還能靠什麼創造財富？';
     resize();
+  }
+  function nextStep(){
+    const total=fragments(current).length;
+    if(revealed[current]<total){revealed[current]+=1;renderFragments(current)}
+    else show(current+1,'reset');
+  }
+  function previousStep(){
+    if(revealed[current]>0){revealed[current]-=1;renderFragments(current)}
+    else show(current-1,'all');
   }
   function toggleOverview(force){
     const open=typeof force==='boolean'?force:!overview.classList.contains('open');
@@ -461,8 +521,8 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
     }else{await document.exitFullscreen()}
   }
 
-  document.getElementById('prev').addEventListener('click',()=>show(current-1));
-  document.getElementById('next').addEventListener('click',()=>show(current+1));
+  document.getElementById('prev').addEventListener('click',previousStep);
+  document.getElementById('next').addEventListener('click',nextStep);
   document.getElementById('overviewBtn').addEventListener('click',()=>toggleOverview());
   document.getElementById('closeOverview').addEventListener('click',()=>toggleOverview(false));
   document.getElementById('printBtn').addEventListener('click',()=>window.print());
@@ -474,15 +534,15 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
       if(event.key==='Escape'||event.key.toLowerCase()==='o'){event.preventDefault();toggleOverview(false)}
       return;
     }
-    if(['ArrowRight','PageDown',' '].includes(event.key)){event.preventDefault();show(current+1)}
-    else if(['ArrowLeft','PageUp'].includes(event.key)){event.preventDefault();show(current-1)}
-    else if(event.key==='Home'){event.preventDefault();show(0)}
-    else if(event.key==='End'){event.preventDefault();show(slides.length-1)}
+    if(['ArrowRight','PageDown',' '].includes(event.key)){event.preventDefault();nextStep()}
+    else if(['ArrowLeft','PageUp'].includes(event.key)){event.preventDefault();previousStep()}
+    else if(event.key==='Home'){event.preventDefault();show(0,'reset')}
+    else if(event.key==='End'){event.preventDefault();show(slides.length-1,'reset')}
     else if(event.key.toLowerCase()==='o'){event.preventDefault();toggleOverview(true)}
     else if(event.key.toLowerCase()==='f'){event.preventDefault();toggleFullscreen()}
     else if(event.key.toLowerCase()==='p'){event.preventDefault();window.print()}
   });
-  show(current);resize();
+  show(current,'reset');resize();
 })();
 </script>
 </body>
