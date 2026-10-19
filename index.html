@@ -119,6 +119,30 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
 .system-box .symbol{font-size:95px;line-height:1;margin:38px 0 28px;color:var(--gold)}
 .system-box p{font-size:27px}.system-box.new p{color:#d2dfe8}
 .system-arrow{text-align:center;font-size:80px;color:var(--teal);font-weight:900}
+.pain-focus{margin-top:68px;display:grid;grid-template-columns:.9fr 1.35fr;gap:38px;align-items:stretch}
+.pain-old{min-height:510px;padding:48px;background:#fff;border:2px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.pain-old small{font-size:22px;font-weight:900;letter-spacing:.12em;color:var(--muted)}
+.pain-old strong{font-size:56px;line-height:1.3;color:#9aa6aa;text-decoration:line-through;text-decoration-thickness:4px;text-decoration-color:var(--red);margin-top:38px}
+.pain-answer{min-height:510px;padding:52px;background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:center}
+.pain-answer small{font-size:22px;font-weight:900;letter-spacing:.12em;color:var(--gold2)}
+.pain-answer strong{font-size:59px;line-height:1.28;margin-top:34px;color:#fff}
+.workflow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:90px}
+.workflow-step{position:relative;min-height:330px;padding:34px 27px;background:#fff;border:2px solid var(--line)}
+.workflow-step::after{content:"→";position:absolute;right:-22px;top:130px;font-size:38px;font-weight:900;color:var(--teal);z-index:2}
+.workflow-step:last-child{background:var(--navy);color:#fff;border:0}.workflow-step:last-child::after{display:none}
+.workflow-step b{display:block;font-size:20px;letter-spacing:.11em;color:var(--teal)}
+.workflow-step:last-child b{color:var(--gold2)}
+.workflow-step strong{display:block;font-size:34px;line-height:1.3;margin-top:48px;color:var(--navy)}
+.workflow-step:last-child strong{color:#fff}
+.workflow-step span{display:block;font-size:23px;line-height:1.45;margin-top:22px;color:var(--muted)}
+.workflow-step:last-child span{color:#cad9e3}
+.schedule-examples{display:flex;gap:14px;flex-wrap:wrap;margin-top:44px}
+.schedule-examples span{padding:11px 18px;background:#e2efed;color:var(--navy);font-size:22px;font-weight:800;border-radius:99px}
+.schedule-loop{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;margin-top:58px}
+.schedule-step{min-height:400px;padding:37px 33px;background:#fff;border-top:8px solid var(--teal);position:relative}
+.schedule-step::after{content:"→";position:absolute;right:-28px;top:170px;font-size:46px;font-weight:900;color:var(--gold);z-index:2}
+.schedule-step:last-child::after{content:"↻";right:24px;top:auto;bottom:23px;color:var(--teal)}
+.schedule-step b{font-size:74px;color:#dce6e4;line-height:1}.schedule-step h3{font-size:37px;margin-top:50px}.schedule-step p{font-size:24px;margin-top:22px}
 .abilities{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;margin-top:68px}
 .ability{min-height:480px;padding:36px 30px;background:#fff;border-top:7px solid var(--gold)}
 .ability:nth-child(2){border-color:var(--teal)}.ability:nth-child(3){border-color:var(--blue)}.ability:nth-child(4){border-color:var(--red)}
@@ -264,40 +288,39 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
     <div class="slide-no">07</div>
   </section>
 
-  <section class="slide" id="nticket-problem" data-title="難的不是把文件放進去">
-    <div class="topline"><div><div class="eyebrow">N-Ticket × ISO 27001</div><h2>難的不是把文件放進去</h2></div><p>真正困難的是：一件事情改了，還有哪些事情必須跟著改？</p></div>
-    <div class="system-shift">
-      <article class="system-box old"><h3>表面需求</h3><div class="symbol">▤</div><p>保存文件、管理版本、設定誰可以下載，以及誰負責核准。</p></article>
-      <div class="system-arrow">→</div>
-      <article class="system-box new"><h3>真正問題</h3><div class="symbol">⌘</div><p>找出制度之間的連動，推動負責人修訂、核准、訓練與留下可追溯紀錄。</p></article>
+  <section class="slide" id="nticket-problem" data-title="ISO 最難的是誰該做什麼">
+    <div class="topline"><div><div class="eyebrow">N-Ticket × ISO 27001</div><h2>ISO 導入，原本非常耗時、耗力</h2></div><p>真正的痛點，不是缺少功能，也不是沒有文件。</p></div>
+    <div class="pain-focus">
+      <div class="pain-old"><small>大家以為最難的是</small><strong>功能<br>文件</strong></div>
+      <div class="pain-answer"><small>真正最難的是</small><strong>什麼時間，<br>什麼人，<br>應該做什麼事？</strong></div>
     </div>
-    <div class="bottom-punch">企業需要的不是電子文件櫃，而是一套記得「誰影響誰」的系統。</div>
+    <div class="bottom-punch">N-Ticket 的價值：把制度中的責任與時間，直接轉成可以執行的工單。</div>
     <div class="slide-no">08</div>
   </section>
 
-  <section class="slide" id="change-network" data-title="一張變更申請影響什麼？">
-    <div class="topline"><div><div class="eyebrow">一個具體例子</div><h2>公司要開放員工在家工作</h2></div><p>表面是一個遠端連線需求，背後卻牽動整張制度關係網。</p></div>
-    <div class="doc-network">
-      <svg class="network-lines" viewBox="0 0 1700 670" preserveAspectRatio="none" aria-hidden="true">
-        <line x1="850" y1="310" x2="175" y2="80"/><line x1="850" y1="310" x2="555" y2="60"/><line x1="850" y1="310" x2="1145" y2="60"/><line x1="850" y1="310" x2="1525" y2="80"/>
-        <line x1="850" y1="310" x2="175" y2="590"/><line x1="850" y1="310" x2="555" y2="610"/><line x1="850" y1="310" x2="1145" y2="610"/><line x1="850" y1="310" x2="1525" y2="590"/>
-      </svg>
-      <div class="center-node"><strong>遠端工作變更</strong><span>VPN／外部連線／在家處理資料</span></div>
-      <div class="node n1">資訊安全政策</div><div class="node n2">帳號與存取權限</div><div class="node n3">設備與資產管理</div><div class="node n4">可接受使用規範</div>
-      <div class="node n5">風險評估</div><div class="node n6">事件通報流程</div><div class="node n7">教育訓練</div><div class="node n8">內部稽核檢查表</div>
+  <section class="slide" id="change-network" data-title="填完變更申請，系統開始工作">
+    <div class="topline"><div><div class="eyebrow">例子一：提出變更申請</div><h2>我只要依序填表單</h2></div><p>後面該由誰處理、何時完成，不需要再靠人一個一個追。</p></div>
+    <div class="workflow">
+      <div class="workflow-step"><b>STEP 01</b><strong>依序填寫表單</strong><span>把這次要變更的事情與原因說清楚。</span></div>
+      <div class="workflow-step"><b>STEP 02</b><strong>系統判斷流程</strong><span>依照設定，決定後續需要哪些處理步驟。</span></div>
+      <div class="workflow-step"><b>STEP 03</b><strong>找到負責人</strong><span>每一項工作都對應到該負責的角色。</span></div>
+      <div class="workflow-step"><b>STEP 04</b><strong>設定完成期限</strong><span>知道什麼時候該開始、什麼時候要完成。</span></div>
+      <div class="workflow-step"><b>STEP 05</b><strong>自動發出工單</strong><span>通知、追蹤與後續紀錄，都由系統接手。</span></div>
     </div>
+    <div class="bottom-punch">使用者負責把事情填清楚；N-Ticket 負責把事情送到正確的人手上。</div>
     <div class="slide-no">09</div>
   </section>
 
-  <section class="slide" id="translator" data-title="最稀缺的是整合者">
-    <div class="topline"><div><div class="eyebrow">系統背後的人</div><h2>最稀缺的，不是再多一份文件</h2></div><p>而是有人能讓不同專業真的合作起來。</p></div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:75px">
-      <div class="barrier"><div class="num">01</div><h3>ISO 顧問</h3><p>知道制度怎麼設計，也知道稽核時需要什麼證據。</p></div>
-      <div class="barrier"><div class="num">02</div><h3>資安人員</h3><p>知道風險在哪裡，哪些控制措施真的有效。</p></div>
-      <div class="barrier"><div class="num">03</div><h3>工程師</h3><p>知道系統如何實作、保存資料、控制權限。</p></div>
-      <div class="barrier"><div class="num">04</div><h3>實際使用者</h3><p>知道每天怎麼操作，以及哪些流程根本走不下去。</p></div>
+  <section class="slide" id="translator" data-title="例行工作由系統記住">
+    <div class="topline"><div><div class="eyebrow">例子二：自動排程</div><h2>盤點、檢查，不需要再靠人記</h2></div><p>把週期設定好，例行工作就能按時被啟動。</p></div>
+    <div class="schedule-examples"><span>資產盤點</span><span>帳號權限檢查</span><span>備份復原測試</span><span>教育訓練</span></div>
+    <div class="schedule-loop">
+      <div class="schedule-step"><b>01</b><h3>時間到了</h3><p>依照每月、每季或每年的排程，自動啟動工作。</p></div>
+      <div class="schedule-step"><b>02</b><h3>自動發工單</h3><p>系統指定負責人、期限與應完成的檢查項目。</p></div>
+      <div class="schedule-step"><b>03</b><h3>負責人完成</h3><p>照著工單執行、填寫結果並附上必要的證據。</p></div>
+      <div class="schedule-step"><b>04</b><h3>留下執行紀錄</h3><p>完成狀態與證據被保存，下一個週期再自動開始。</p></div>
     </div>
-    <div class="bottom-punch">整合者的工作：把「制度的語言」翻譯成「可以執行的系統邏輯」。</div>
+    <div class="bottom-punch">完成工單，ISO 27001 要求的例行工作與執行紀錄，就能持續被推進與留存。</div>
     <div class="slide-no">10</div>
   </section>
 
