@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#081528">
-<meta name="revision" content="2026-11-11-ai-digital-workforce">
+<meta name="revision" content="2026-11-11-game-videos-hero-evolution">
 <link rel="icon" href="data:,">
 <title>當 AI 什麼都能做，我們還能靠什麼創造財富？</title>
 <style>
@@ -19,8 +19,8 @@ html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--night
 button{font:inherit}
 .deck-viewport{position:absolute;inset:0 0 82px;overflow:hidden;background:radial-gradient(circle at 15% 20%,#183754 0,#071526 48%,#040d17 100%)}
 .deck{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center}
-.slide{position:absolute;inset:0;display:none;overflow:hidden;padding:78px 104px 74px;background:var(--paper);opacity:0}
-.slide.active{display:block;opacity:1;animation:fade .2s ease-out}
+.slide{position:absolute;inset:0;display:none;overflow:hidden;padding:78px 104px 74px;background:var(--paper);opacity:0;pointer-events:none}
+.slide.active{display:block;opacity:1;pointer-events:auto;animation:fade .2s ease-out}
 @keyframes fade{from{opacity:.25}to{opacity:1}}
 .fragment{opacity:0;visibility:hidden;transform:translateY(26px);pointer-events:none;transition:opacity .34s ease,transform .34s ease,visibility 0s linear .34s}
 .fragment.is-visible{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;transition-delay:0s}
@@ -65,6 +65,23 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
 .game-logo{position:absolute;right:80px;bottom:35px;width:570px;filter:drop-shadow(0 18px 25px rgba(0,0,0,.55))}
 .poll-options{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
 .poll-options span{padding:12px 18px;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.28);font-size:23px}
+.media-showcase{padding:64px 84px 58px;background:linear-gradient(145deg,#071526 0%,#0d2b3d 100%);color:#fff}
+.media-showcase.hero-showcase{background:linear-gradient(145deg,#082720 0%,#0b3d32 100%)}
+.media-showcase::before{display:none}
+.media-head{display:flex;align-items:flex-end;justify-content:space-between;gap:50px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.18)}
+.media-head h2{font-size:52px;color:#fff}
+.media-head p{max-width:520px;text-align:right;font-size:24px;color:#c6d6df}
+.media-stage{display:grid;grid-template-columns:minmax(0,1.58fr) minmax(330px,.42fr);gap:34px;align-items:stretch;margin-top:28px}
+.media-video-wrap{align-self:start;background:#02070a;border:1px solid rgba(255,255,255,.16);box-shadow:0 24px 60px rgba(0,0,0,.38);overflow:hidden}
+.media-video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}
+.media-poster-print{display:none;width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}
+.media-panel{min-height:650px;padding:38px 34px;background:rgba(255,255,255,.075);border-top:7px solid var(--gold);display:flex;flex-direction:column}
+.hero-showcase .media-panel{border-top-color:var(--teal2)}
+.media-panel h3{font-size:39px;line-height:1.28;color:#fff;margin:32px 0 20px}
+.media-panel p{font-size:25px;line-height:1.5;color:#c7d8e2}
+.media-tip{margin-top:auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.18);font-size:21px;line-height:1.45;color:#9fb7c5}
+.game-link{display:flex;align-items:center;justify-content:space-between;margin-top:32px;padding:20px 23px;background:var(--gold2);color:#152a38;text-decoration:none;font-size:25px;font-weight:900;border-radius:8px}
+.game-link:hover,.game-link:focus-visible{background:#ffe09a;outline:4px solid #fff;outline-offset:3px}
 .story-split{display:grid;grid-template-columns:1.02fr .98fr;gap:75px;align-items:center;margin-top:58px}
 .story-image{position:relative;height:650px;overflow:hidden;background:#172b35;box-shadow:var(--shadow)}
 .story-image img{width:100%;height:100%;object-fit:cover}
@@ -215,11 +232,14 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
 @media (prefers-reduced-motion:reduce){.slide.active{animation:none}.progress,.fragment{transition:none}}
 @media print{
   @page{size:16in 9in;margin:0}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
   html,body{height:auto;overflow:visible;background:#fff}
   .deck-viewport{position:static;inset:auto;overflow:visible;background:#fff}
   .deck{position:static;width:auto;height:auto;transform:none!important}
   .slide{position:relative;display:block!important;opacity:1!important;width:1920px;height:1080px;page-break-after:always;break-after:page}
   .fragment{opacity:1!important;visibility:visible!important;transform:none!important;transition:none!important}
+  .media-video{display:none!important}
+  .media-poster-print{display:block!important}
   .controls,.overview{display:none!important}
 }
 </style>
@@ -245,6 +265,24 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
     </div>
     <img class="game-logo" src="assets/game-logo.webp" alt="三國萌將守城：屍潮來襲">
     <div class="slide-no">01</div>
+  </section>
+
+  <section class="slide media-showcase dark" id="game-trailer" data-title="60 秒認識三國萌將">
+    <div class="media-head"><div><div class="eyebrow">作品介紹</div><h2>60 秒認識《三國萌將守城》</h2></div><p>先看作品，再回頭看一句想法如何一步一步成真。</p></div>
+    <div class="media-stage">
+      <div class="media-video-wrap"><img class="media-poster-print" src="assets/sanguo-mengjiang-poster.jpg" alt="" aria-hidden="true"><video class="media-video" controls playsinline preload="metadata" poster="assets/sanguo-mengjiang-poster.jpg" aria-label="播放《三國萌將守城》60 秒遊戲介紹"><source src="assets/sanguo-mengjiang-60s.mp4" type="video/mp4">您的瀏覽器不支援影片播放。</video></div>
+      <aside class="media-panel"><span class="tag">三國萌將・60 秒介紹</span><h3>孩子提出構想，<br>我們把它做成真的遊戲</h3><p>從角色、玩法到測試修正，AI 協助縮短每一次實作與迭代。</p><div class="media-tip">點擊影片播放；播放期間可使用原生音量與全螢幕控制。</div></aside>
+    </div>
+    <div class="slide-no">02</div>
+  </section>
+
+  <section class="slide media-showcase hero-showcase dark" id="hero-evolution" data-title="從三國萌將到英雄演義">
+    <div class="media-head"><div><div class="eyebrow">作品持續進化</div><h2>後來，我們把它改版成《英雄演義》</h2></div><p>從守城遊戲，走向有章回、有選擇的三國英雄旅程。</p></div>
+    <div class="media-stage">
+      <div class="media-video-wrap"><img class="media-poster-print" src="assets/hero-yanyi-poster.jpg" alt="" aria-hidden="true"><video class="media-video" controls playsinline preload="metadata" poster="assets/hero-yanyi-poster.jpg" aria-label="播放《英雄演義》60 秒遊戲介紹"><source src="assets/hero-yanyi-60s.mp4" type="video/mp4">您的瀏覽器不支援影片播放。</video></div>
+      <aside class="media-panel"><span class="tag">英雄演義・60 秒介紹</span><h3>保留三國角色，<br>重新設計故事與玩法</h3><p>從桃園結義出發，跟著不同軍隊與章回，走進亂世中的選擇。</p><a class="game-link" href="https://gm0621.github.io/pvz-web-prototype/hero/?v=d2e2064" target="_blank" rel="noopener">開啟《英雄演義》<span aria-hidden="true">→</span></a><div class="media-tip">連結會在新分頁開啟，不會中斷目前簡報。</div></aside>
+    </div>
+    <div class="slide-no">03</div>
   </section>
 
   <section class="slide" id="son-story" data-title="起點只是一句話">
@@ -465,7 +503,7 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
   const progress=document.getElementById('progress');
   const overview=document.getElementById('overview');
   const grid=document.getElementById('overviewGrid');
-  const storageKey='ai-wealth-talk-slide-v1';
+  const storageKey='ai-wealth-talk-slide-v2';
   let current=Math.min(Math.max(Number(localStorage.getItem(storageKey))||0,0),slides.length-1);
   const revealed=Array(slides.length).fill(0);
   const fragmentPlan={
@@ -500,6 +538,8 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
   });
 
   slides.forEach((slide,i)=>{
+    const slideNumber=slide.querySelector('.slide-no');
+    if(slideNumber) slideNumber.textContent=String(i).padStart(2,'0');
     const button=document.createElement('button');
     button.className='thumb';
     button.innerHTML='<small>'+String(i+1).padStart(2,'0')+'</small><strong>'+slide.dataset.title+'</strong>';
@@ -530,6 +570,7 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
       const active=i===current;
       slide.classList.toggle('active',active);
       slide.setAttribute('aria-hidden',String(!active));
+      if(!active) slide.querySelectorAll('video').forEach(video=>video.pause());
     });
     if(revealMode==='all') revealed[current]=fragments(current).length;
     else if(revealMode==='reset') revealed[current]=0;
@@ -572,6 +613,7 @@ p{font-size:29px;line-height:1.52;margin:0;color:var(--muted)}
       if(event.key==='Escape'||event.key.toLowerCase()==='o'){event.preventDefault();toggleOverview(false)}
       return;
     }
+    if(event.target.closest('button,a,video,input,select,textarea')) return;
     if(['ArrowRight','PageDown',' '].includes(event.key)){event.preventDefault();nextStep()}
     else if(['ArrowLeft','PageUp'].includes(event.key)){event.preventDefault();previousStep()}
     else if(event.key==='Home'){event.preventDefault();show(0,'reset')}
